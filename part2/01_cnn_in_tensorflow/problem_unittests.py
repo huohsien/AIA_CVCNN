@@ -32,8 +32,9 @@ def test_folder_path(cifar10_dataset_folder_path):
 def test_normalize(normalize):
     test_shape = (np.random.choice(range(1000)), 32, 32, 3)
     test_numbers = np.random.choice(range(256), test_shape)
-    normalize_out = normalize(test_numbers)
 
+    normalize_out = normalize(test_numbers)
+  
     assert type(normalize_out).__module__ == np.__name__,\
         'Not Numpy Object'
 

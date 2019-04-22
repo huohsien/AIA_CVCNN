@@ -135,14 +135,15 @@ def load_preprocess_training_batch(batch_id, batch_size):
     return batch_features_labels(features, labels, batch_size)
 
 
-def display_image_predictions(features, labels, predictions):
+def display_image_predictions(features, labels, predictions, n_samples):
     n_classes = 10
     label_names = _load_label_names()
     label_binarizer = LabelBinarizer()
     label_binarizer.fit(range(n_classes))
     label_ids = label_binarizer.inverse_transform(np.array(labels))
 
-    fig, axies = plt.subplots(nrows=4, ncols=2)
+
+    fig, axies = plt.subplots(nrows=n_samples, ncols=2,figsize=(16, 3.6 * n_samples))
     fig.tight_layout()
     fig.suptitle('Softmax Predictions', fontsize=20, y=1.1)
 
